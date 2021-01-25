@@ -11,27 +11,42 @@
   <h1>Example error embedding (iFrame) on JSON return: <i>X-Frame_options set to sameorigin</i> error</h1>
   <h2>failing iframe:</h2>
   <p></p>
-<!--iframe id="errorid"" src="https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA9JiOUjKB61eY3aT_ZmBv5K4u8tjX_d9g" title="Directions JSON return">
-</iframe-->
+<iframe id="errorid"" src="https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA9JiOUjKB61eY3aT_ZmBv5K4u8tjX_d9g" title="Directions JSON return">
+</iframe>
   <h2>working solution using code:</h2>
   <p id="demo"></p>
 <script>
 let myUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA9JiOUjKB61eY3aT_ZmBv5K4u8tjX_d9g";
-let jsondata;    
-fetch(myUrl).then(
-	function(u){ return u.json();}
-  ).then(
-	function(json){
-	  jsondata = json;
-	  document.getElementById("demo").innerHTML = jsondata;
-	}
-  )
+/* Source: https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api */
+function logResult(result) {
+  console.log(result);
+}
 
-	  
+function logError(error) {
+  console.log('Looks like there was a problem: \n', error);
+}
+
+function validateResponse(response) {
+  if (!response.ok) {
+    throw Error(response.statusText);
+  }
+  return response;
+}
+
+function readResponseAsJSON(response) {
+  return response.json();
+}
+
+function fetchJSON(pathToResource) {
+  fetch(pathToResource) // 1
+  .then(validateResponse) // 2
+  .then(readResponseAsJSON) // 3
+  .then(logResult) // 4
+  .catch(logError);
+}
+
+console.log(fetchJSON(myUrl));	  
 </script>
   <h2>Solution Description</h2>
-  <p>The top URL has refused to display in a frame because Google set 'X-Frame-Options' to 'sameorigin' for this document. Many websites do not want you to embed their website into theirs and this is a way to protect/prevent it.</p>
-  <p>The URL used must not be the "edit" one for the document. Google MyMaps (like most cloud resources) uses an "ID" for the document name. The above document's ID is 1RtLOehNImRBoLOxm8wN_gq4Z5Ok.</p>
-  <p>An application (in the top case editing a mymap) "consumes" this MyMaps document and provides the GUI around it. In the topmost example it uses the "edit" app. The bottom example uses the "embed" app, which does allow iFrame use. Modify your URL to be "embed" from "edit" and it will work!</p>
 </body>
 </html>
