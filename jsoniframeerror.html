@@ -15,15 +15,15 @@
 </iframe>
   <h2>working solution using code:</h2>
 <script>
-async function getData(url) {
-  const response = await fetch(url);
-  return response.json();
-}
-
 let myUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA9JiOUjKB61eY3aT_ZmBv5K4u8tjX_d9g";
-const data = await getData(myUrl);
-
-console.log({ data });
+let jsondata;    
+fetch(myUrl).then(
+        function(u){ return u.json();}
+      ).then(
+        function(json){
+          jsondata = json;
+        }
+      )
 </script>
   <h2>Solution Description</h2>
   <p>The top URL has refused to display in a frame because Google set 'X-Frame-Options' to 'sameorigin' for this document. Many websites do not want you to embed their website into theirs and this is a way to protect/prevent it.</p>
