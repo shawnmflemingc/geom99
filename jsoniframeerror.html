@@ -18,35 +18,23 @@
 <script>
 let myUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA9JiOUjKB61eY3aT_ZmBv5K4u8tjX_d9g";
 /* Source: https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api */
-function logResult(result) {
-  console.log(result);
-}
 
-function logError(error) {
-  console.log('Looks like there was a problem: \n', error);
-}
-
-function validateResponse(response) {
+fetch(myUrl).then(function(response) {
   if (!response.ok) {
     throw Error(response.statusText);
   }
-  return response;
-}
-
-function readResponseAsJSON(response) {
+  // Read the response as json.
   return response.json();
-}
-
-function fetchJSON(pathToResource) {
-  fetch(pathToResource) // 1
-  .then(validateResponse) // 2
-  .then(readResponseAsJSON) // 3
-  .then(logResult) // 4
-  .catch(logError);
-}
-
-console.log(fetchJSON(myUrl));	  
+})
+.then(function(responseAsJson) {
+  // Do stuff with the JSON
+  console.log(responseAsJson);
+})
+.catch(function(error) {
+  console.log('Looks like there was a problem: \n', error);
+});  
 </script>
-  <h2>Solution Description</h2>
+
+<h2>Solution Description</h2>
 </body>
 </html>
