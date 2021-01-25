@@ -14,7 +14,17 @@
 <iframe id="errorid"" src="https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyA9JiOUjKB61eY3aT_ZmBv5K4u8tjX_d9g" title="Directions JSON return">
 </iframe>
   <h2>working solution using code:</h2>
+<script>
+async function getData(url) {
+  const response = await fetch(url);
 
+  return response.json();
+}
+
+const data = await getData(url);
+
+console.log({ data })  
+</script>
   <h2>Solution Description</h2>
   <p>The top URL has refused to display in a frame because Google set 'X-Frame-Options' to 'sameorigin' for this document. Many websites do not want you to embed their website into theirs and this is a way to protect/prevent it.</p>
   <p>The URL used must not be the "edit" one for the document. Google MyMaps (like most cloud resources) uses an "ID" for the document name. The above document's ID is 1RtLOehNImRBoLOxm8wN_gq4Z5Ok.</p>
