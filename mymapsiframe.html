@@ -2,7 +2,8 @@
 <html>
   <head>
     <style>
-      iframe {height:200px; width:100%;}
+      #errorid {height:150px; width:100%;}
+      #worksid {height:350px; width:100%;}
       body {font-family: "Trebuchet MS","sans-serif";}
     </style>
   </head>
@@ -11,10 +12,10 @@
   <h1>Example error embedding (iFrame) on MyMaps: <i>X-Frame_options set to sameorigin</i> error</h1>
   <h2>failing iframe:</h2>
   <p>Here is a MyMap showing data from the Fleming China Great Wall Hike in October 2016. The first example fails and the second works. View-source (CTRL-V or right-click) to see the URLs used. The solution is at the bottom.</p>
-<iframe src="https://www.google.com/maps/d/u/0/edit?mid=1RtLOehNImRBoLOxm8wN_gq4Z5Ok&usp=sharing" title="Google MyMaps">
+<iframe id="errorid"" src="https://www.google.com/maps/d/u/0/edit?mid=1RtLOehNImRBoLOxm8wN_gq4Z5Ok&usp=sharing" title="Google MyMaps">
 </iframe>
   <h2>working iframe:</h2>
-<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1RtLOehNImRBoLOxm8wN_gq4Z5Ok&usp=sharing" title="Google MyMaps">
+<iframe id="worksid" src="https://www.google.com/maps/d/u/0/embed?mid=1RtLOehNImRBoLOxm8wN_gq4Z5Ok&usp=sharing" title="Google MyMaps">
 </iframe>
   <h2>Solution Description</h2>
   <p>The top URL has refused to display in a frame because Google set 'X-Frame-Options' to 'sameorigin' for this document. Many websites do not want you to embed their website into theirs and this is a way to protect/prevent it.</p>
