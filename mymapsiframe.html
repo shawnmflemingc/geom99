@@ -2,7 +2,7 @@
 <html>
   <head>
     <style>
-      iframe {height:100px; width:100%;}
+      iframe {height:200px; width:100%;}
       body {font-family: "Trebuchet MS","sans-serif";}
     </style>
   </head>
@@ -16,8 +16,9 @@
 <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1RtLOehNImRBoLOxm8wN_gq4Z5Ok&usp=sharing" title="Google MyMaps">
 </iframe>
   <h2>Solution Description</h2>
+  <p>The top URL has refused to display in a frame because Google set 'X-Frame-Options' to 'sameorigin' for this document. Many websites do not want you to embed their website into theirs and this is a way to protect/prevent it.</p>
   <p>The URL used must not be the "edit" one for the document. Google MyMaps (like most cloud resources) uses an "ID" for the document name. The above document's ID is 1RtLOehNImRBoLOxm8wN_gq4Z5Ok.</p>
-  <p>An application "consumes" this MyMaps document. In the topmost example it uses the "edit" app. The bottom example uses the "embed" app, which does allow iFrame use.</p>
+  <p>An application (in the top case editing a mymap) "consumes" this MyMaps document and provides the GUI around it. In the topmost example it uses the "edit" app. The bottom example uses the "embed" app, which does allow iFrame use. Modify your URL to be "embed" from "edit" and it will work!</p>
 </body>
 </html>
 
