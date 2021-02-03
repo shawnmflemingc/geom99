@@ -539,6 +539,34 @@
           ]
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.90106201171875,
+            44.509727880009144
+          ],
+          [
+            -78.71498107910156,
+            44.57335002212469
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.62022399902344,
+          44.567480121682536
+        ]
+      }
     }
   ]
 }
