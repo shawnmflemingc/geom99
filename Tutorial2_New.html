@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title> Here be Dragons </title>
+  <style>
+    html, body,
+    .header{
+        margin-top:1vw;
+        text-align: center;
+        font-family: arial, helvetica, sans-serif;
+      }
+    p{
+        font-size: 16pt;
+        font-family: arial, helvetica, sans-serif;
+      }
+
+    .link{
+      font-size: 14pt;
+      font-family: arial, helvetica, sans-serif;
+      text-decoration: none;
+      text-align: center;
+      color:green;
+      margin-bottom: 2vw;
+    }
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css">
+  <script src="https://js.arcgis.com/4.18/"></script>
+  <script>
+
+  require([
+    "esri/config","esri/Map","esri/views/MapView","esri/Graphic","esri/layers/GraphicsLayer" ], function(esriConfig,Map, MapView, Graphic, GraphicsLayer) {
+
+  esriConfig.apiKey = "AAPK1b667b7ea0c146389c2a3ca2c2c7a49ah_8L0KmrZgOmUlOSUAL6NKwysRI-T3zJv3vm6qv20AkgmLA-WYEESKGaWjrmwkZL";
+  // Set up the map and its basic view
+  const map = new Map({
+    basemap: "arcgis-modern-antique" //Basemap layer service
+  });
+
+  const view = new MapView({
+    map: map,
+    center: [-3.57315,52.40393], //Longitude, latitude for Wales
+    zoom: 8,
+    container: "viewDiv"
+ });
+
+// creates the graphics layer - you can have multiple graphics in a maps
+ const graphicsLayer = new GraphicsLayer();
+ map.add(graphicsLayer);
+
+ // ######### BEAUMARIS #########
+
+ // Beaumaris
+ const pointB = { 
+    type: "point",
+    longitude: -4.0898278477192385,
+    latitude: 53.26479948589513
+ };
+
+ const simpleMarkerSymbolB = { // sets symbology for point
+    type: "simple-marker",
+    color: [226, 119, 40],  // Orange
+    outline: {
+        color: [255, 255, 255], // White
+        width: 1
+    }
+ };
+ // use this to set the point graphic
+  // Add a pop-up for the polygon layer on a click
+  const popupTemplateB = { // defines the pop-up with empty attributes
+    title: "{Name}",
+    content: "{Description}"
+ }
+ const attributesB = { // applies the attributes to the pop-up
+    Name: "Beaumaris Castle",
+    Description: "Located in Angelsey Wales and built the 13th century as part of King Edward I's campain in Wales"
+ } 
+ 
+ const pointGraphicB = new Graphic({
+    geometry: pointB,
+    symbol: simpleMarkerSymbolB, 
+    attributes: attributesB,
+    popupTemplate: popupTemplateB
+ });
+
+ graphicsLayer.add(pointGraphicB); // add the newly created point to the graphics layer
+
+  // ######### PEMBROKE #########
+
+ // Pembroke
+ const pointP = { 
+    type: "point",
+    longitude: -4.920699794292731,
+    latitude: 51.67691032173594
+ };
+
+ const simpleMarkerSymbolP = { // sets symbology for point
+    type: "simple-marker",
+    color: [226, 119, 40],  // Orange
+    outline: {
+        color: [255, 255, 255], // White
+        width: 1
+    }
+ };
+ // use this to set the point graphic
+  // Add a pop-up for the polygon layer on a click
+  const popupTemplateP = { // defines the pop-up with empty attributes
+    title: "{Name}",
+    content: "{Description}"
+ }
+ const attributesP = { // applies the attributes to the pop-up
+    Name: "Pembroke Castle",
+    Description: "Remains of 12th/13th century castle built by William Marshall. Birthplace of Henry VII."
+ } 
+ 
+ const pointGraphicP = new Graphic({
+    geometry: pointP,
+    symbol: simpleMarkerSymbolP, 
+    attributes: attributesP,
+    popupTemplate: popupTemplateP
+ });
+
+ graphicsLayer.add(pointGraphicP); // add the newly created point to the graphics layer
+
+  // ######### CARDIFF #########
+
+ // Cardiff
+ const pointC = { 
+    type: "point",
+    longitude: -3.18119916859806,
+    latitude: 51.48217180051163
+ };
+
+ const simpleMarkerSymbolC = { // sets symbology for point
+    type: "simple-marker",
+    color: [226, 119, 40],  // Orange
+    outline: {
+        color: [255, 255, 255], // White
+        width: 1
+    }
+ };
+ // use this to set the point graphic
+  // Add a pop-up for the polygon layer on a click
+  const popupTemplateC = { // defines the pop-up with empty attributes
+    title: "{Name}",
+    content: "{Description}"
+ }
+ const attributesC = { // applies the attributes to the pop-up
+    Name: "Cardiff Castle",
+    Description: "Victorian gothic fantasy style built on the remains of Norman and Roman ruins"
+ } 
+ 
+ const pointGraphicC = new Graphic({
+    geometry: pointC,
+    symbol: simpleMarkerSymbolC, 
+    attributes: attributesC,
+    popupTemplate: popupTemplateC
+ });
+
+ graphicsLayer.add(pointGraphicC); // add the newly created point to the graphics layer
+
+ });
+ 
+</script>
+</head>
+<body>
+    <div>
+    <h1 class="header"> Three Pretty Fancy Castles</h1>
+    <p> Click on the points below to learn more about each castle</p>
+    <a class="link" href="index.html"> Return to Week 3 Home</a>
+    </div>
+
+    <!-- use the id of the map to call in the map function-->
+  <div id="viewDiv"></div>
+</body>
+</html>
