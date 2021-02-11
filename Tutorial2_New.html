@@ -32,8 +32,19 @@
     }
   </style>
   <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css">
-  <script defer src="https://js.arcgis.com/4.18/"></script>
-  <script>
+  <script src="https://js.arcgis.com/4.18/"></script>
+
+</head>
+<body>
+    <div>
+    <h1 class="header"> Three Pretty Fancy Castles</h1>
+    <p> Click on the points below to learn more about each castle</p>
+    <a class="link" href="index.html"> Return to Week 3 Home</a>
+    </div>
+
+    <!-- use the id of the map to call in the map function-->
+  <div id="viewDiv"></div>
+    <script>
 
   require([
     "esri/config","esri/Map","esri/views/MapView","esri/Graphic","esri/layers/GraphicsLayer" ], function(esriConfig,Map, MapView, Graphic, GraphicsLayer) {
@@ -169,15 +180,7 @@
  });
  
 </script>
-</head>
-<body>
-    <div>
-    <h1 class="header"> Three Pretty Fancy Castles</h1>
-    <p> Click on the points below to learn more about each castle</p>
-    <a class="link" href="index.html"> Return to Week 3 Home</a>
-    </div>
 
-    <!-- use the id of the map to call in the map function-->
-  <div id="viewDiv"></div>
+  
 </body>
 </html>
