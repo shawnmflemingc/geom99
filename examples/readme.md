@@ -26,13 +26,21 @@ https://lucylingit.github.io/labpractical1/
 ## GitHub Markdown Documentation Examples
 
 Using MarkDown to communicate technical information is an industry standard and great alternative to webpages. Here are a few good examples from this lab. 
+
 https://github.com/nsodhi2908/geom99/blob/main/directions.md
+
 https://github.com/mattarchbell/GEOM99
+
 https://github.com/MichelleMarano1/GoogleMaps/blob/main/MapRoutesPlaces/Directions.md
 
 ## Other Notable JavaScript API Examples
 There were many great examples. Some could not be shared here because the URL path given was not adheared to and now those maps do not function :-(
+
 https://hollieegg.github.io/GMaps/bikemap.html
+
 https://danammckee.github.io/FlemingGEOM99/Week2/GMaps/bcskihills.html
+
 https://mattarchbell.github.io/GEOM99/option1.html
+
 https://cpenlington.github.io/googlelab/countywineries.html
+
