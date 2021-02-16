@@ -1,6 +1,6 @@
 # Google Mapping Examples
 
-*Note With API key restrictions now in place, code or examples no longer functioning are because you likely deviated from paths requested in checklist and therefore your code does not meet the wildcard restrictions placed on the given key.*
+*Note With API key restrictions now in place, code or examples limits to the path requested in checklist -- code that does not meet the wildcard restrictions placed on the given key may not function.*
 ## All-star examples
 ### Sarah's Piping Plovers
 This excellent integrated example tells a story, shows it on the map and is interactive. It uses street maps, MyMaps and photos to provide the reader a great experience. 
