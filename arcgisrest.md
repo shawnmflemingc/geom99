@@ -208,7 +208,7 @@ This URL builds on the previous URL parameters and adds the following:
 
 There are many more options in the Query tool, but this gives you a start. Now, dive into trying to build some queries yourself. 
 
-### Try it: Cities layer query
+### ***Try it***: Cities layer query
 
 Using the Cities layer (https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0) query and return all records, and the geometry and fields for each within the state (field name `st`) of Georgia (which the data uses just the 2 character short form, `GA` for this). Order the results by population in 2000 in descending order (field `pop2000 desc`). Some notes to help you get started:
 
@@ -254,7 +254,7 @@ Y: 33.43327105000003
 
 </details>
 
-### Try it: What earthquake damaged the most houses?
+### ***Try it***: What earthquake damaged the most houses?
 
 In the same server, return to the root of the ArcGIS Rest Endpoint (https://sampleserver6.arcgisonline.com/arcgis/rest/services) and look for the Earthquakes since 1970's MapServer and use the Query method to answer this question:
 
@@ -289,7 +289,7 @@ Tips:
  
 </details>
 
-### Try it: What were the Atlantic hurricane's names in 2000?
+### ***Try it***: What were the Atlantic hurricane's names in 2000?
 
 Using the MapServer at https://sampleserver6.arcgisonline.com/arcgis/rest/services/AGP/Hurricanes/MapServer, can you find the distinct names for the 14 hurricanes?
 
