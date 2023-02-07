@@ -208,7 +208,57 @@ This URL builds on the previous URL parameters and adds the following:
 
 There are many more options in the Query tool, but this gives you a start. Now, dive into trying to build some queries yourself. 
 
-### Query 
+### Query Problems to Try
+
+Using the Cities layer (https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0) query and return all records, and the geometry and fields for each within the state (field name `st`) of Georgia (which the data uses just the 2 character short form, `GA` for this). Order the results by population in 2000 in descending order (field `pop2000 desc`). Some notes to help you get started:
+
+- Use the previous example as a starting point, but be sure to remove the Input Geometry, since we do not want to limit our search area to that geography.
+- String values must be put into single quotes. So in this case, `'GA'` would be the proper way to provide the string in the where clause. 
+- The operator to use in the where clause is `=` (equals). 
+- We are going to be returning all fields, so change the out fields to be just a single star `*` character. 
+- Ordering your results in descending order requires you to specify the field `pop2000` followed by the notation to make it reverse order from biggest to smallest using `desc'. 
+
+<details><summary>Click for Answer</summary>
+
+Note: If using the HTML form all fields in the form will appear in the parameters, even if no value is provided and the parameter is equal to nothing. The answer below shows ONLY the fields required to make the query work, but if your answer has all parameter values included and gets the same results then it is correct!
+
+-  https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0/query?where=st+%3D+%27GA%27&outFields=*&returnGeometry=true&orderByFields=pop2000+desc&f=html
+
+```
+# records: 82
+
+objectid: 974
+areaname: Atlanta
+class: city
+st: GA
+capital: Y
+pop2000: 416474
+Point:
+X: -84.40317593599997
+Y: 33.75950604800005
+
+objectid: 975
+areaname: Augusta-Richmond County
+class: city (consolidated, balance)
+st: GA
+capital: N
+pop2000: 195182
+Point:
+X: -82.02204799199995
+Y: 33.43327105000003
+
+objectid: 985
+areaname: Columbus
+class: city (consolidated, balance)
+st: GA
+capital: N
+pop2000: 185781
+Point:
+X: -84.94042188899994
+Y: 32.48960804200004
+```
+
+</details>
 
 ## Feature Services
 
