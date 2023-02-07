@@ -218,7 +218,7 @@ Using the Cities layer (https://sampleserver6.arcgisonline.com/arcgis/rest/servi
 - We are going to be returning all fields, so change the out fields to be just a single star `*` character. 
 - Ordering your results in descending order requires you to specify the field `pop2000` followed by the notation to make it reverse order from biggest to smallest using `desc'. 
 
-<details><summary>Click for Answer</summary>
+#### <details><summary>Click for Answer</summary>
 
 Note: If using the HTML form all fields in the form will appear in the parameters, even if no value is provided and the parameter is equal to nothing. The answer below shows ONLY the fields required to make the query work, but if your answer has all parameter values included and gets the same results then it is correct!
 
