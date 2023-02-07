@@ -267,17 +267,17 @@ Tips:
 - 8.3 is a number, so you want to use an appropriate operator to evaluate the statement to match the requirements. Take a look at the documentation to learn what operators are possible on the query where parameter (https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer-.htm)
 
 <details><summary>Click for Answer</summary>
->
-> ##### Answer
-> 
-> ```
-> # records: 7
-> 
-> objectid: 763
-> year_: 1994.0
-> 
-> --- TRUNCATED TO SAVE SPACE ---
-> ```
+
+ ##### Answer
+ 
+ ```
+ # records: 7
+ 
+ objectid: 763
+ year_: 1994.0
+ 
+ --- TRUNCATED TO SAVE SPACE ---
+ ```
 > 
 > https://sampleserver6.arcgisonline.com/arcgis/rest/services/Earthquakes_Since1970/MapServer/0/query?where=magnitude+%3E%3D+8.3&outFields=*&returnGeometry=false&f=html
 > 
@@ -287,10 +287,7 @@ Tips:
 > 
 > The question was for the number of earthquakes, and there is a parameter called `returnCountOnly=true` that would do this and be quicker to respond with only a count of the number of records. Can you just return the count?
 > 
-> ```
-> Count: 7
-> ```
-> 
+ 
 </details>
 
 ### Try it: What were the Atlantic hurricane's names in 2000?
