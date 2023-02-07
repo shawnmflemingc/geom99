@@ -219,6 +219,7 @@ Using the Cities layer (https://sampleserver6.arcgisonline.com/arcgis/rest/servi
 - Ordering your results in descending order requires you to specify the field `pop2000` followed by the notation to make it reverse order from biggest to smallest using `desc'. 
 
 <details><summary>Click for Answer</summary>
+
 ##### Answer
 
 Note: If using the HTML form all fields in the form will appear in the parameters, even if no value is provided and the parameter is equal to nothing. The answer below shows ONLY the fields required to make the query work, but if your answer has all parameter values included and gets the same results then it is correct!
@@ -226,6 +227,7 @@ Note: If using the HTML form all fields in the form will appear in the parameter
 -  https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0/query?where=st+%3D+%27GA%27&outFields=*&returnGeometry=true&orderByFields=pop2000+desc&f=html
 
 ##### Results (truncated)
+
 ```
 # records: 82
 
@@ -265,17 +267,47 @@ Tips:
 - 8.3 is a number, so you want to use an appropriate operator to evaluate the statement to match the requirements. Take a look at the documentation to learn what operators are possible on the query where parameter (https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer-.htm)
 
 <details><summary>Click for Answer</summary>
+
 ##### Answer
-There are 7 in the database. 
+
+```
+# records: 7
+
+objectid: 763
+year_: 1994.0
+
+--- TRUNCATED TO SAVE SPACE ---
+```
 
 https://sampleserver6.arcgisonline.com/arcgis/rest/services/Earthquakes_Since1970/MapServer/0/query?where=magnitude+%3E%3D+8.3&outFields=*&returnGeometry=false&f=html
 
 Did you only get 3? The question asked for AT LEAST 8.3, so you must include 8.3 by using the operator `>=` (greater than or equal) and not just `>` (greater than)
 
 ##### Bonus:
-The question was for the number of earthquakes, and there is a parameter called `returnCountOnly=true` that would do this and be quicker to respond with only a count of the number of records. Modify your answer and give it a try!
+
+The question was for the number of earthquakes, and there is a parameter called `returnCountOnly=true` that would do this and be quicker to respond with only a count of the number of records. Can you just return the count?
+
+```
+Count: 7
+```
+
+</details>
+
+### Try it: What were the Atlantic hurricane's names in 2000?
+
+Using the MapServer at https://sampleserver6.arcgisonline.com/arcgis/rest/services/AGP/Hurricanes/MapServer, can you find the distinct names for the 14 hurricanes?
+
+Tips:
+
+- There is a parameter to return distinct values (each only once). 
+- You must return only the field that contains the name. Not sure which field that is? Try looking at the data by creating a 1=1 WHERE query to look through all data returned.
+
+<details><summary>Click for Answer</summary>
+
+https://sampleserver6.arcgisonline.com/arcgis/rest/services/AGP/Hurricanes/MapServer/0/query?where=1%3D1&outFields=EVENTID+&returnGeometry=false&returnDistinctValues=true&f=html
+
 </details>
 
 ## Feature Services
 
-The Feature Service allows you to interact with the actual vector geometries and is much more capable than the Map Service.A MapServer has cartography pre-defined, so you can just request a map and it will be displayed using that. A FeatureServer typically does not have information on how to display the layers contained in the service. This is why by default an ArcGIS Server that is stand-alone will actually create both a MapServer and FeatureServer for the same map!  
+The Feature Service allows you to interact with the actual vector geometries and is much more capable than the Map Service. A MapServer has cartography pre-defined, so you can just request a map and it will be displayed using that. A FeatureServer typically does not have information on how to display the layers contained in the service. But the same QUERY method exists for FeatureServer services as does MapServer services! 
