@@ -54,5 +54,28 @@ The f=html option is the default, so if the "f" URL parameter left off it will s
 
 Now, using the HTML version of sampleserver6 (PS: there is a sampleserver5 as well, with the same content) let us explore some functionality with existing published map services.
 
-## Using ImageServers
+## Navigating the MapServer REST Endpoint
 
+Full API Documentation: https://developers.arcgis.com/rest/services-reference/enterprise/map-service.htm
+
+A MapServer is available on ArcGIS Enterprise and ArcGIS Server environments, but not ArcGIS Online. This contains data (layers) combined together into a single "map" with default applied cartography. Think of it as a pre-created map that you can easily request as an image. This is called a Dynamic Map, meaning that the image provided is generated using the live data on the server. 
+
+Example: https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/export?bbox=-89.25%2C35.48%2C-72.61%2C46.01&size=713%2C451&format=png32&f=image
+
+Generates this image:
+
+![map example](https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/export?bbox=-89.25%2C35.48%2C-72.61%2C46.01&size=713%2C451&format=png32&f=image)
+
+Lets break this down into its method and parameters, section by section (remember, URL parameter order does not matter when submitting a URL for a REST request and `%2C` is an encoded `,` (comma)):
+
+- Each parameter below is detailed in the documentation, and is recommended you read each listed below from here: https://developers.arcgis.com/rest/services-reference/enterprise/export-map.htm
+
+### EXPORT method
+
+The Export is a method (it does something) and generates the image on the server then returns the image or a link to the image with the client as the format requested. 
+
+### Bounding Box `bbox=-89.25,35.48,-72.61,46.01`
+
+This is the bounding box for the request. The image will be generated using the geographical box indicated. The syntax is `<xmin>, <ymin>, <xmax>, <ymax>` using the spatial reference of the map (or converted, if a different spatial reference is used by including the URL parameter `bbSR`). 
+
+### Image Size `size=713,451`
