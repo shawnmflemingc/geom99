@@ -118,15 +118,40 @@ Map Services (actually both Feature Services and Map Services, but more on Featu
 
 https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer
 
+### MapServer (and FeatureServer) Layer List
+
 The list of layers is numbered, usually starting with 0 and going up to the number of Layers -1 (called 0 based numbering). Click on the States layer notice how the URL is modified. A number is added to the end that corresponds to that layer's listed number (it is called a layer ID). 
 
-Knowing this, can you modify your URL to open the first layer?
+Knowing this, can you modify your REST Endpoint URL on the USA MapServer to open the first layer Cities?
 
 <details><summary>Click for URL Answer</summary>
  
 - https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0
+- Remember, the numbering is 0 based so the first one is 0, not 1! If you put in 1 you would get the highways layer.
 
 </details>
+
+### Dynamic Layers and Tables
+
+https://developers.arcgis.com/rest/services-reference/enterprise/dynamic-layer-table.htm
+
+The two most common layer types publish are dynamic layers and tiled/cached layers. Dynamic layers are typically operational layers, in that the application that will be using this map service interacts with the data, modifies the data, or queries the data directly (hence operational). Contrast that with tiled or cached layers where they are there for visual aesthetics or cartographic reasons only--the application does nothing other than display the data, usually in the background with the operational data on top. For the purposes of exploring the REST endpoint we will focus on operational layers, which again the documentation calls these dynamic layers because the data can change at any time (if the underlying data were updated in some way) and those changes will be displayed on the next request. 
+
+Where a layer that is selected is stored as vector data (X and Y coordinates to make up a point, line or polygon and combined with an attribute record), there are a series of operations possible that work similar to a SQL SELECT statement. This is called a query operation or method. 
+
+### Query Method
+
+API Documentation: https://developers.arcgis.com/rest/services-reference/enterprise/query-map-service-dynamic-layer-.htm
+
+The Query method is used to retrieve records from the data that is in the map service. Combined with the Export option above, this is one of the most used methods to display information in web applications from the ArcGIS ecosystem. You can think of this method as the equivalent of a "SELECT" statement in SQL, but uses a REST interface. 
+
+Start by opening and looking at this example query:
+
+https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0/query?where=capital%3D%27Y%27&outFields=*&returnGeometry=false&f=html
+
+
+
+https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0/query?where=capital%3D%27Y%27&outFields=objectid%2Careaname%2Cst&orderByFields=areaname&f=html
 
 
 
