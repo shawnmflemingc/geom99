@@ -92,3 +92,16 @@ The image format to be returned can be specified using this parameter. In this c
 
 This option just returns the image directly from the request. It can be used in an `<img src="image">` tag directly, where the image is the entire URL that generates that static image. There is no user interface around this image being displayed, so you cannot interact with the map. 
 
+### What else can a MapServer do?
+
+The URL example for export just returns an image. You cannot use the image to do anything, other than look! So there are other methods on the MapServer that allow you to interact with the data, including identify. Here is an identify example all pre-populated asking for a point on a map of the USA right on the state line between Nevada and California (note some characters are not URL encoded for easier readability, but they should be if using this in a production environment!):
+
+https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/identify?geometryType=esriGeometryPoint&geometry=-120,40&tolerance=10&mapExtent=-119,38,-121,41&imageDisplay=400,300,96
+
+You can actively change any of the values and re-run the query with results returning back below the form. It is a nice way to play and test out what is happening, as well to learn what the capabilities are. Refer to the API documentation (https://developers.arcgis.com/rest/services-reference/enterprise/identify-map-service-.htm) if you want to learn what each parameter expects, which are required, and what format should they be written in. 
+
+Identify and Export are just two methods available on the MapServer REST endpoint. Click on the `USA (MapServer)` at the top of the REST Endpoint HTML window to return to the main MapServer interface. Scroll to the bottom where it has Supported Operations shown. This is a clickable list of all the methods available for this service! You can learn about each by clicking and looking at the form to drive the interface.
+
+## Navigating the FeatureServer REST Endpoint
+
+The Feature Service allows you to interact with the actual vector geometries and is much more capable than the Map Service. 
