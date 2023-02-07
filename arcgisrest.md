@@ -37,8 +37,8 @@ What is different between the two above URLS?
 
 <details><summary>Click for Answer</summary>
 
-- There is no URL parameter on the first one, but the second one specifically asks for the returned results in JSON. The JSON version is meant to be serializable by a program, usually JavaScript. That is just a fancy way of saying a programmer can code something to read and navigate the information shown on the REST endpoint easily. 
-- Why the P in front of JSON? "Pretty" JSON. Pretty? It is formatted nicely to be read by a human and program.
+> - There is no URL parameter on the first one, but the second one specifically asks for the returned results in JSON. The JSON version is meant to be serializable by a program, usually JavaScript. That is just a fancy way of saying a programmer can code something to read and navigate the information shown on the REST endpoint easily. 
+> - Why the P in front of JSON? "Pretty" JSON. Pretty? It is formatted nicely to be read by a human and program.
 
 </details>
 
@@ -221,13 +221,6 @@ Using the Cities layer (https://sampleserver6.arcgisonline.com/arcgis/rest/servi
 <details><summary>Click for Answer</summary>
 
 ##### Answer
-
-Note: If using the HTML form all fields in the form will appear in the parameters, even if no value is provided and the parameter is equal to nothing. The answer below shows ONLY the fields required to make the query work, but if your answer has all parameter values included and gets the same results then it is correct!
-
--  https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0/query?where=st+%3D+%27GA%27&outFields=*&returnGeometry=true&orderByFields=pop2000+desc&f=html
-
-##### Results (truncated)
-
 ```
 # records: 82
 
@@ -253,6 +246,12 @@ Y: 33.43327105000003
 
 --- truncated, total 82 records returned ---
 ```
+
+> Note: If using the HTML form all fields in the form will appear in the parameters, even if no value is provided and the parameter is equal to nothing. The answer below shows ONLY the fields required to make the query work, but if your answer has all parameter values included and gets the same results then it is correct!
+> 
+> -  https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0/query?where=st+%3D+%27GA%27&outFields=*&returnGeometry=true&orderByFields=pop2000+desc&f=html
+> 
+
 </details>
 
 ### Try it: What earthquake damaged the most houses?
@@ -301,8 +300,10 @@ Tips:
 
 <details><summary>Click for Answer</summary>
 
-https://sampleserver6.arcgisonline.com/arcgis/rest/services/AGP/Hurricanes/MapServer/0/query?where=1%3D1&outFields=EVENTID+&returnGeometry=false&returnDistinctValues=true&f=html
+##### Answer
 
+> https://sampleserver6.arcgisonline.com/arcgis/rest/services/AGP/Hurricanes/MapServer/0/query?where=1%3D1&outFields=EVENTID+&returnGeometry=false&returnDistinctValues=true&f=html
+>
 </details>
 
 ## Feature Services
