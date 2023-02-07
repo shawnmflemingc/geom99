@@ -102,6 +102,34 @@ You can actively change any of the values and re-run the query with results retu
 
 Identify and Export are just two methods available on the MapServer REST endpoint. Click on the `USA (MapServer)` at the top of the REST Endpoint HTML window to return to the main MapServer interface. Scroll to the bottom where it has Supported Operations shown. This is a clickable list of all the methods available for this service! You can learn about each by clicking and looking at the form to drive the interface.
 
-## Navigating the FeatureServer REST Endpoint
+Another way you can interact with a MapServer is layer by layer. At the main interface, look at the list of layers included in this service:
 
-The Feature Service allows you to interact with the actual vector geometries and is much more capable than the Map Service. 
+- Layers:
+  - Cities (0)
+  - Highways (1)
+  - States (2)
+  - Counties (3)
+
+Each is clickable and has their own interface. Read on how to interact with these and use the `Query` method to return attribute data and specific geometries next. 
+
+## Layers in ArcGIS REST Endpoints
+
+Map Services (actually both Feature Services and Map Services, but more on Feature Services later) have one or more layers of geographic data included within them. Return to the root of the USA MapServer: 
+
+https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer
+
+The list of layers is numbered, usually starting with 0 and going up to the number of Layers -1 (called 0 based numbering). Click on the States layer notice how the URL is modified. A number is added to the end that corresponds to that layer's listed number (it is called a layer ID). 
+
+Knowing this, can you modify your URL to open the first layer?
+
+<details><summary>Click for URL Answer</summary>
+ 
+- https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0
+
+</details>
+
+
+
+## Feature Services
+
+The Feature Service allows you to interact with the actual vector geometries and is much more capable than the Map Service.A MapServer has cartography pre-defined, so you can just request a map and it will be displayed using that. A FeatureServer typically does not have information on how to display the layers contained in the service. This is why by default an ArcGIS Server that is stand-alone will actually create both a MapServer and FeatureServer for the same map!  
