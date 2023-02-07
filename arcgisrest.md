@@ -79,3 +79,16 @@ The Export is a method (it does something) and generates the image on the server
 This is the bounding box for the request. The image will be generated using the geographical box indicated. The syntax is `<xmin>, <ymin>, <xmax>, <ymax>` using the spatial reference of the map (or converted, if a different spatial reference is used by including the URL parameter `bbSR`). 
 
 ### Image Size `size=713,451`
+
+Given the bounding box, this image size request will be the size of the actual image returned in pixels `<width>,<height>`.
+
+### Image Format `format=png32`
+
+The image format to be returned can be specified using this parameter. In this case, it is a 32-bit PNG that is created and returned. There are a lot of options for this, including any one of: 
+
+`png | png8 | png24 | jpg | pdf | bmp | gif | svg | svgz | emf | ps | png32`
+
+### Return the image `f=image`
+
+This option just returns the image directly from the request. It can be used in an `<img src="image">` tag directly, where the image is the entire URL that generates that static image. There is no user interface around this image being displayed, so you cannot interact with the map. 
+
