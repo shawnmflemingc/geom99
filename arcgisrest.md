@@ -147,13 +147,42 @@ The Query method is used to retrieve records from the data that is in the map se
 
 Start by opening and looking at this example query:
 
-https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0/query?where=capital%3D%27Y%27&outFields=*&returnGeometry=false&f=html
-
-
-
 https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0/query?where=capital%3D%27Y%27&outFields=objectid%2Careaname%2Cst&orderByFields=areaname&f=html
 
+Observing each of the parameters in the URL helps explain what this is asking to be returned (note the above URL is  encoded and below are decoded to explain easier, see https://developers.google.com/maps/url-encoding for info on encoding):
 
+- `where=captial='Y'` This required item looks and acts like the where clause in a standard SELECT statement. For this example, only data that have a `Y` character in the field `capitals` will be returned. The where clause is arguably the most important part of the query in that it limits what will be returned where the boolean clause is true for each record searched. Sometimes, particularly to debug, you want to return all data so you can include a WHERE of `1=1` to force it to return everything, since 1 is always equal to 1 (evalutes to TRUE), every record is returned!
+- `outFields=objectid,areaname,st` This is another required item and specifies which fields will be returned by the query. If you wish to return all fields, place a `*` as the value in this field. 
+- `orderByFields=areaname` The query will return records in whatever order they are found unless you specify a field to order the data. In this case, it will be ordered (sorted) by the contents of the field `areaname` in the returned data. 
+- `f=html` This was already discussed and returns the data in the HTML (person) view with links etc. 
+
+There are also ways to query using a geographic extent, and only return data that fall within that area. 
+
+https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0/query?where=capital%3D%27Y%27&geometry=%7Bxmin%3A+-104%2C+ymin%3A+35.6%2C+xmax%3A+-94.32%2C+ymax%3A+41%7D&geometryType=esriGeometryEnvelope&spatialRel=esriSpatialRelIntersects&outFields=objectid%2Careaname%2Cst&returnGeometry=true&orderByFields=areaname&f=html
+
+```
+# records: 2
+
+objectid: 2118
+areaname: Lincoln
+st: NE
+Point:
+X: -96.67534491599997
+Y: 40.80986809400008
+
+objectid: 1406
+areaname: Topeka
+st: KS
+Point:
+X: -95.68950812299994
+Y: 39.03919994000006
+```
+
+This URL builds on the previous URL parameters and adds the following:
+
+- `geometry={xmin: -104, ymin: 35.6, xmax: -94.32, ymax: 41}` This is the heart of the additional query. It creates an additional limiter to evaluate all of the data where only those records that fall within these coordinates will be returned
+- `spatialRel=esriSpatialRelIntersects` This couples with the geometry to determine how the spatial limiting will occur, and in this case any feature in the layer that intersects with the extent provided in the `geometry` parameter will be returned. 
+- `returnGeometry=true` This parameter makes the data returned include the geometry associated with each record. Because this is point data, a point will be returned. But note, it doesn't return a map--it returns the actual vectors that make up the geometry and it would be the job of the application to display that! 
 
 ## Feature Services
 
