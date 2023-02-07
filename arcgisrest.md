@@ -64,7 +64,7 @@ Example: https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServ
 
 Generates this image:
 
-![map example](https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/export?bbox=-89.25%2C35.48%2C-72.61%2C46.01&size=713%2C451&format=png32&f=image)
+![map example](https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/export?bbox=-89.25%2C35.48%2C-72.61%2C46.01&size=300%2C400&format=png32&f=image)
 
 Lets break this down into its method and parameters, section by section (remember, URL parameter order does not matter when submitting a URL for a REST request and `%2C` is an encoded `,` (comma)):
 
@@ -78,7 +78,7 @@ The Export is a method (it does something) and generates the image on the server
 
 This is the bounding box for the request. The image will be generated using the geographical box indicated. The syntax is `<xmin>, <ymin>, <xmax>, <ymax>` using the spatial reference of the map (or converted, if a different spatial reference is used by including the URL parameter `bbSR`). 
 
-### Image Size `size=713,451`
+### Image Size `size=300,400`
 
 Given the bounding box, this image size request will be the size of the actual image returned in pixels `<width>,<height>`.
 
