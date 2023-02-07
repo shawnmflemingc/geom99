@@ -149,6 +149,24 @@ Start by opening and looking at this example query:
 
 https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0/query?where=capital%3D%27Y%27&outFields=objectid%2Careaname%2Cst&orderByFields=areaname&f=html
 
+```
+# records: 51
+
+objectid: 2346
+areaname: Albany
+st: NY
+
+objectid: 1593
+areaname: Annapolis
+st: MD
+
+objectid: 974
+areaname: Atlanta
+st: GA
+
+--- and 47 more ---
+```
+
 Observing each of the parameters in the URL helps explain what this is asking to be returned (note the above URL is  encoded and below are decoded to explain easier, see https://developers.google.com/maps/url-encoding for info on encoding):
 
 - `where=captial='Y'` This required item looks and acts like the where clause in a standard SELECT statement. For this example, only data that have a `Y` character in the field `capitals` will be returned. The where clause is arguably the most important part of the query in that it limits what will be returned where the boolean clause is true for each record searched. Sometimes, particularly to debug, you want to return all data so you can include a WHERE of `1=1` to force it to return everything, since 1 is always equal to 1 (evalutes to TRUE), every record is returned!
@@ -160,6 +178,7 @@ There are also ways to query using a geographic extent, and only return data tha
 
 https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0/query?where=capital%3D%27Y%27&geometry=%7Bxmin%3A+-104%2C+ymin%3A+35.6%2C+xmax%3A+-94.32%2C+ymax%3A+41%7D&geometryType=esriGeometryEnvelope&spatialRel=esriSpatialRelIntersects&outFields=objectid%2Careaname%2Cst&returnGeometry=true&orderByFields=areaname&f=html
 
+#### Results:
 ```
 # records: 2
 
