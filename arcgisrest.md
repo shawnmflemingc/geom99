@@ -149,6 +149,9 @@ Start by opening and looking at this example query:
 
 https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0/query?where=capital%3D%27Y%27&outFields=objectid%2Careaname%2Cst&orderByFields=areaname&f=html
 
+
+#### Query Results
+
 ```
 # records: 51
 
@@ -178,7 +181,7 @@ There are also ways to query using a geographic extent, and only return data tha
 
 https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0/query?where=capital%3D%27Y%27&geometry=%7Bxmin%3A+-104%2C+ymin%3A+35.6%2C+xmax%3A+-94.32%2C+ymax%3A+41%7D&geometryType=esriGeometryEnvelope&spatialRel=esriSpatialRelIntersects&outFields=objectid%2Careaname%2Cst&returnGeometry=true&orderByFields=areaname&f=html
 
-#### Results:
+#### Query Results:
 ```
 # records: 2
 
@@ -202,6 +205,10 @@ This URL builds on the previous URL parameters and adds the following:
 - `geometry={xmin: -104, ymin: 35.6, xmax: -94.32, ymax: 41}` This is the heart of the additional query. It creates an additional limiter to evaluate all of the data where only those records that fall within these coordinates will be returned
 - `spatialRel=esriSpatialRelIntersects` This couples with the geometry to determine how the spatial limiting will occur, and in this case any feature in the layer that intersects with the extent provided in the `geometry` parameter will be returned. 
 - `returnGeometry=true` This parameter makes the data returned include the geometry associated with each record. Because this is point data, a point will be returned. But note, it doesn't return a map--it returns the actual vectors that make up the geometry and it would be the job of the application to display that! 
+
+There are many more options in the Query tool, but this gives you a start. Now, dive into trying to build some queries yourself. 
+
+### Query 
 
 ## Feature Services
 
