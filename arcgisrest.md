@@ -2,7 +2,7 @@
 
 This site introduces the ArcGIS REST API to those learning about web GIS. In particular, it will focus on navigating and using this documentation: https://developers.arcgis.com/rest/services-reference/enterprise/get-started-with-the-services-directory.htm
 
-## What is REST anyway?
+# What is REST anyway?
 
 Representational State Transfer (https://en.wikipedia.org/wiki/Representational_state_transfer) is a common web architecture for middle-ware that uses URLs to retrieve data from internal data systems. Each URL request to a REST endpoint (as they are called) is independent of any other request (stateless). This means the server providing the results to a REST endpoint request is not concerned with what it did before, or after; it just needs to work on the current request. It is the job of an application to maintain its state (for example, remember where you are looking when panning on a map). 
 
@@ -12,15 +12,15 @@ The modern development pattern for web solutions is a web-tier, which is only th
 
 Most REST endpoints have two versions, one focused on the developers (humans), and another focused on the computer (particularly but not limited to JavaScript). If you open the "human" version you get a common website interface with links and lists. It is well organized, but isn't a fancy website like a marketing page. It is utilitarian and functional to server its purpose: it provides a clickable way you can interact with the interface, test, design new URLs that do specific use cases, and then possible program something to generate the same URLs and automate a process or task. 
 
-## ArcGIS Enterprise
+# ArcGIS Enterprise
 
 ArcGIS Enterprise is a software suite and web-GIS platform. The two main components, ArcGIS Server and Portal, both have REST endpoints to manage its configuration. ArcGIS Server is the main spatial engine for ArcGIS Enterprise, and all data published through Portal or directly against ArcGIS Server are made available in a rich and well-documented REST endpoint called the ArcGIS REST API.
 
-## ArcGIS Server
+# ArcGIS Server
 
 Learning to navigate ArcGIS Server's REST API gives data administrators a powerful tool in discovering what capabilities are available, debugging problems with solutions, and ensuring data shared are secured, appropriate and valid. Without understanding how to navigate the REST API, an administer is effectively working blind and only can use the GUI within ArcGIS Server or Portal to see what is happening with their environment.
 
-## The REST Services Directory
+# The REST Services Directory
 
 The ArcGIS REST services directory is a website (HTML version) and programming interface (JSON Version) to published services. This is often called an endpoint. The default location for this rest endpoint is in a path of `/arcgis/rest/services`. The "arcgis" portion can be configured and sometimes there are more folders placed in the path, but for ESRI it always has `/rest/services` when dealing with Data and Map Services, which this learning tool focuses on. 
 
@@ -54,7 +54,7 @@ The f=html option is the default, so if the "f" URL parameter left off it will s
 
 Now, using the HTML version of sampleserver6 (PS: there is a sampleserver5 as well, with the same content) let us explore some functionality with existing published map services.
 
-## Navigating the MapServer REST Endpoint
+# Navigating the MapServer REST Endpoint
 
 Full API Documentation: https://developers.arcgis.com/rest/services-reference/enterprise/map-service.htm
 
@@ -70,29 +70,29 @@ Lets break this down into its method and parameters, section by section (remembe
 
 - Each parameter below is detailed in the documentation, and is recommended you read each listed below from here: https://developers.arcgis.com/rest/services-reference/enterprise/export-map.htm
 
-### EXPORT method
+## EXPORT method
 
 The Export is a method (it does something) and generates the image on the server then returns the image or a link to the image with the client as the format requested. 
 
-### Bounding Box `bbox=-89.25,35.48,-72.61,46.01`
+## Bounding Box `bbox=-89.25,35.48,-72.61,46.01`
 
 This is the bounding box for the request. The image will be generated using the geographical box indicated. The syntax is `<xmin>, <ymin>, <xmax>, <ymax>` using the spatial reference of the map (or converted, if a different spatial reference is used by including the URL parameter `bbSR`). 
 
-### Image Size `size=450,200`
+## Image Size `size=450,200`
 
 Given the bounding box, this image size request will be the size of the actual image returned in pixels `<width>,<height>`.
 
-### Image Format `format=png32`
+## Image Format `format=png32`
 
 The image format to be returned can be specified using this parameter. In this case, it is a 32-bit PNG that is created and returned. There are a lot of options for this, including any one of: 
 
 `png | png8 | png24 | jpg | pdf | bmp | gif | svg | svgz | emf | ps | png32`
 
-### Return the image `f=image`
+## Return the image `f=image`
 
 This option just returns the image directly from the request. It can be used in an `<img src="image">` tag directly, where the image is the entire URL that generates that static image. There is no user interface around this image being displayed, so you cannot interact with the map. 
 
-### What else can a MapServer do?
+## What else can a MapServer do?
 
 The URL example for export just returns an image. You cannot use the image to do anything, other than look! So there are other methods on the MapServer that allow you to interact with the data, including identify. Here is an identify example all pre-populated asking for a point on a map of the USA right on the state line between Nevada and California (note some characters are not URL encoded for easier readability, but they should be if using this in a production environment!):
 
@@ -112,13 +112,13 @@ Another way you can interact with a MapServer is layer by layer. At the main int
 
 Each is clickable and has their own interface. Read on how to interact with these and use the `Query` method to return attribute data and specific geometries next. 
 
-## Layers in ArcGIS REST Endpoints
+# Layers in ArcGIS REST Endpoints
 
 Map Services (actually both Feature Services and Map Services, but more on Feature Services later) have one or more layers of geographic data included within them. Return to the root of the USA MapServer: 
 
 https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer
 
-### MapServer (and FeatureServer) Layer List
+## MapServer (and FeatureServer) Layer List
 
 The list of layers is numbered, usually starting with 0 and going up to the number of Layers -1 (called 0 based numbering). Click on the States layer notice how the URL is modified. A number is added to the end that corresponds to that layer's listed number (it is called a layer ID). 
 
@@ -131,7 +131,7 @@ Knowing this, can you modify your REST Endpoint URL on the USA MapServer to open
 
 </details>
 
-### Dynamic Layers and Tables
+## Dynamic Layers and Tables
 
 https://developers.arcgis.com/rest/services-reference/enterprise/dynamic-layer-table.htm
 
@@ -139,7 +139,7 @@ The two most common layer types publish are dynamic layers and tiled/cached laye
 
 Where a layer that is selected is stored as vector data (X and Y coordinates to make up a point, line or polygon and combined with an attribute record), there are a series of operations possible that work similar to a SQL SELECT statement. This is called a query operation or method. 
 
-### Query Method
+## Query Method
 
 API Documentation: https://developers.arcgis.com/rest/services-reference/enterprise/query-map-service-dynamic-layer-.htm
 
@@ -150,7 +150,7 @@ Start by opening and looking at this example query:
 https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0/query?where=capital%3D%27Y%27&outFields=objectid%2Careaname%2Cst&orderByFields=areaname&f=html
 
 
-#### Query Results
+### Query Results
 
 ```
 # records: 51
@@ -181,7 +181,7 @@ There are also ways to query using a geographic extent, and only return data tha
 
 https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0/query?where=capital%3D%27Y%27&geometry=%7Bxmin%3A+-104%2C+ymin%3A+35.6%2C+xmax%3A+-94.32%2C+ymax%3A+41%7D&geometryType=esriGeometryEnvelope&spatialRel=esriSpatialRelIntersects&outFields=objectid%2Careaname%2Cst&returnGeometry=true&orderByFields=areaname&f=html
 
-#### Query Results:
+### Query Results:
 ```
 # records: 2
 
@@ -208,7 +208,7 @@ This URL builds on the previous URL parameters and adds the following:
 
 There are many more options in the Query tool, but this gives you a start. Now, dive into trying to build some queries yourself. 
 
-### ***Try it***: Cities layer query
+## ***Try it***: Cities layer query
 
 Using the Cities layer (https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0) query and return all records, and the geometry and fields for each within the state (field name `st`) of Georgia (which the data uses just the 2 character short form, `GA` for this). Order the results by population in 2000 in descending order (field `pop2000 desc`). Some notes to help you get started:
 
@@ -220,7 +220,7 @@ Using the Cities layer (https://sampleserver6.arcgisonline.com/arcgis/rest/servi
 
 <details><summary>Click for Answer</summary>
 
-##### Answer
+### Answer
 ```
 # records: 82
 
@@ -254,7 +254,7 @@ Y: 33.43327105000003
 
 </details>
 
-### ***Try it***: What earthquake damaged the most houses?
+## ***Try it***: What earthquake damaged the most houses?
 
 In the same server, return to the root of the ArcGIS Rest Endpoint (https://sampleserver6.arcgisonline.com/arcgis/rest/services) and look for the Earthquakes since 1970's MapServer and use the Query method to answer this question:
 
@@ -267,7 +267,7 @@ Tips:
 
 <details><summary>Click for Answer</summary>
 
- ##### Answer
+### Answer
  
  ```
  # records: 7
@@ -282,14 +282,14 @@ Tips:
 > 
 > Did you only get 3? The question asked for AT LEAST 8.3, so you must include 8.3 by using the operator `>=` (greater than or equal) and not just `>` (greater than)
 > 
-> ##### Bonus:
+> ### Bonus:
 > 
 > The question was for the number of earthquakes, and there is a parameter called `returnCountOnly=true` that would do this and be quicker to respond with only a count of the number of records. Can you just return the count?
 > 
  
 </details>
 
-### ***Try it***: What were the Atlantic hurricane's names in 2000?
+## ***Try it***: What were the Atlantic hurricane's names in 2000?
 
 Using the MapServer at https://sampleserver6.arcgisonline.com/arcgis/rest/services/AGP/Hurricanes/MapServer, can you find the distinct names for the 14 hurricanes?
 
@@ -300,12 +300,28 @@ Tips:
 
 <details><summary>Click for Answer</summary>
 
-##### Answer
+### Answer
 
 > https://sampleserver6.arcgisonline.com/arcgis/rest/services/AGP/Hurricanes/MapServer/0/query?where=1%3D1&outFields=EVENTID+&returnGeometry=false&returnDistinctValues=true&f=html
 >
 </details>
 
-## Feature Services
+# ArcGIS REST Feature Services
 
 The Feature Service allows you to interact with the actual vector geometries and is much more capable than the Map Service. A MapServer has cartography pre-defined, so you can just request a map and it will be displayed using that. A FeatureServer typically does not have information on how to display the layers contained in the service. But the same QUERY method exists for FeatureServer services as does MapServer services! 
+
+Sometimes it even makes sense to have both a MapServer and FeatureServer published together, since the FeatureServer allows for editing rights and can be secured to be accessed only with a username and password, while the MapServer can share that same data live with edits! Take a look at these two services, one is a MapServer and the second is a MapServer. They are the same data shared and point to the same layer in the Enterprise geodatabase on the server (a requirement for web editing capabilities), but each has slightly different capabilities in the REST endpoint. 
+
+https://sampleserver6.arcgisonline.com/arcgis/rest/services/Recreation/MapServer/0
+https://sampleserver6.arcgisonline.com/arcgis/rest/services/Recreation/FeatureServer/0/
+
+
+The FeatureServer actually has editing enabled and is public so anyone can edit the data! You can see this by the provided supported operations:
+
+**Supported Operations:**   Query   Query Attachments   Query Analytic   Apply Edits   Add Features   Update Features   Delete Features   Calculate   Validate SQL   Generate Renderer   Return Updates   Iteminfo   Thumbnail   Metadata
+
+Not a good idea for some purposes, but if you want the public to be able to submit data this is what is required. Just recognize that anyone understanding these tools could go through and "delete" the data at any time if they know how to use this rest endpoint interface. 
+
+# Conclusion
+
+Now you know the basics of how to navigate the REST API for ArcGIS Server. Using the documentation provided at https://developers.arcgis.com/rest/services-reference/enterprise/what-s-new.htm you can explore and use the interface to directly query services without an application!
