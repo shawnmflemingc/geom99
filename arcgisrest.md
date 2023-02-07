@@ -22,16 +22,16 @@ Learning to navigate ArcGIS Server's REST API gives data administrators a powerf
 
 ## The REST Services Directory
 
-The ArcGIS REST services directory is a website (HTML version) and programming interface (JSON Version) to published services. This is often called an endpoint. The default location for this rest endpoint is in a path of /arcgis/rest/services. The "arcgis" portion can be configured and sometimes there are more folders placed in the path, but for ESRI it always has /rest/services when dealing with Data and Map Services, which this learning tool focuses on. 
+The ArcGIS REST services directory is a website (HTML version) and programming interface (JSON Version) to published services. This is often called an endpoint. The default location for this rest endpoint is in a path of `/arcgis/rest/services`. The "arcgis" portion can be configured and sometimes there are more folders placed in the path, but for ESRI it always has `/rest/services` when dealing with Data and Map Services, which this learning tool focuses on. 
 
-1. Use Google to search for a place and /arcgis/rest/services and see the various public services
+1. Use Google to search for a place and `/arcgis/rest/services` and see the various public services
 
 Search "ontario arcgis/rest/services": https://www.google.com/search?q=ontario+%2Farcgis%2Frest%2Fservices
 
 Many of the returned searches are for government ArcGIS REST endpoints that power much of the public websites! All of these can be read by a program or person. How? Each is available both as a JSON and HTML version:
 
-Example HTML Version: https://sampleserver6.arcgisonline.com/arcgis/rest/services
-Example JSON Version: https://sampleserver6.arcgisonline.com/arcgis/rest/services?f=pjson
+Example HTML Version: `https://sampleserver6.arcgisonline.com/arcgis/rest/services`
+Example JSON Version: `https://sampleserver6.arcgisonline.com/arcgis/rest/services?f=pjson`
 
 Notice the difference between the two above URLS? There is no URL parameter on the first one, but the second one specifically asks for the returned results in JSON. The JSON version is meant to be serializable by a program, usually JavaScript. That is just a fancy way of saying a programmer can code something to read and navigate the information shown on the REST endpoint easily. 
 
@@ -45,7 +45,9 @@ Now the JSON bunches up (all spaces are removed) and is arguably less easily rea
 
 The f=html option is the default, so if the "f" URL parameter left off it will show the html version. There are other output formats, but for the purposes here we will be focusing on the HTML version. The full documentation for this URL parameter is at https://developers.arcgis.com/rest/services-reference/enterprise/output-formats.htm.
 
-4. Return your focus to and open just the HTML version at https://sampleserver6.arcgisonline.com/arcgis/rest/services. The remaining parts of the exercise will always use the HTML version, but remember you can always change the format to f=json or f=pjson to return those formats. 
+4. Return your focus to and open just the HTML version at https://sampleserver6.arcgisonline.com/arcgis/rest/services. The remaining parts of the exercise will always use the HTML version, but remember you can always change the format to `f=json` or `f=pjson` in the URL parameters to return JSON or PJSON. 
 
-Now, using the HTML version of sampleserver6 (PS: there is a sampleserver5 as well, with the same content) let us explore some functionality.
+Now, using the HTML version of sampleserver6 (PS: there is a sampleserver5 as well, with the same content) let us explore some functionality with existing published map services.
+
+## Using ImageServers
 
