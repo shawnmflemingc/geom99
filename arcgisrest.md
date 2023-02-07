@@ -36,8 +36,10 @@ Many of the returned searches are for government ArcGIS REST endpoints that powe
 What is different between the two above URLS? 
 
 <details><summary>Click for Answer</summary>
+
 - There is no URL parameter on the first one, but the second one specifically asks for the returned results in JSON. The JSON version is meant to be serializable by a program, usually JavaScript. That is just a fancy way of saying a programmer can code something to read and navigate the information shown on the REST endpoint easily. 
 - Why the P in front of JSON? "Pretty" JSON. Pretty? It is formatted nicely to be read by a human and program.
+
 </details>
 
 2. Open the less "pretty" version of the interface by changing the f=pjson to be f=json in the URL. 
