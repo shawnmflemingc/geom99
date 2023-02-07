@@ -208,7 +208,7 @@ This URL builds on the previous URL parameters and adds the following:
 
 There are many more options in the Query tool, but this gives you a start. Now, dive into trying to build some queries yourself. 
 
-### Query Problems to Try
+### Try it: Cities layer query
 
 Using the Cities layer (https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0) query and return all records, and the geometry and fields for each within the state (field name `st`) of Georgia (which the data uses just the 2 character short form, `GA` for this). Order the results by population in 2000 in descending order (field `pop2000 desc`). Some notes to help you get started:
 
@@ -218,12 +218,14 @@ Using the Cities layer (https://sampleserver6.arcgisonline.com/arcgis/rest/servi
 - We are going to be returning all fields, so change the out fields to be just a single star `*` character. 
 - Ordering your results in descending order requires you to specify the field `pop2000` followed by the notation to make it reverse order from biggest to smallest using `desc'. 
 
-#### <details><summary>Click for Answer</summary>
+<details><summary>Click for Answer</summary>
+##### Answer
 
 Note: If using the HTML form all fields in the form will appear in the parameters, even if no value is provided and the parameter is equal to nothing. The answer below shows ONLY the fields required to make the query work, but if your answer has all parameter values included and gets the same results then it is correct!
 
 -  https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0/query?where=st+%3D+%27GA%27&outFields=*&returnGeometry=true&orderByFields=pop2000+desc&f=html
 
+##### Results (truncated)
 ```
 # records: 82
 
@@ -247,17 +249,31 @@ Point:
 X: -82.02204799199995
 Y: 33.43327105000003
 
-objectid: 985
-areaname: Columbus
-class: city (consolidated, balance)
-st: GA
-capital: N
-pop2000: 185781
-Point:
-X: -84.94042188899994
-Y: 32.48960804200004
+--- truncated, total 82 records returned ---
 ```
+</details>
 
+### Try it: What earthquake damaged the most houses?
+
+In the same server, return to the root of the ArcGIS Rest Endpoint (https://sampleserver6.arcgisonline.com/arcgis/rest/services) and look for the Earthquakes since 1970's MapServer and use the Query method to answer this question:
+
+How many earthquakes occurred that were at least 8.3 magnitude?
+
+Tips: 
+
+- On the layer in the map service, you can review the fields to understand their data types. https://sampleserver6.arcgisonline.com/arcgis/rest/services/Earthquakes_Since1970/MapServer/0
+- 8.3 is a number, so you want to use an appropriate operator to evaluate the statement to match the requirements. Take a look at the documentation to learn what operators are possible on the query where parameter (https://developers.arcgis.com/rest/services-reference/enterprise/query-feature-service-layer-.htm)
+
+<details><summary>Click for Answer</summary>
+##### Answer
+There are 7 in the database. 
+
+https://sampleserver6.arcgisonline.com/arcgis/rest/services/Earthquakes_Since1970/MapServer/0/query?where=magnitude+%3E%3D+8.3&outFields=*&returnGeometry=false&f=html
+
+Did you only get 3? The question asked for AT LEAST 8.3, so you must include 8.3 by using the operator `>=` (greater than or equal) and not just `>` (greater than)
+
+##### Bonus:
+The question was for the number of earthquakes, and there is a parameter called `returnCountOnly=true` that would do this and be quicker to respond with only a count of the number of records. Modify your answer and give it a try!
 </details>
 
 ## Feature Services
