@@ -30,14 +30,14 @@ Search "ontario arcgis/rest/services": https://www.google.com/search?q=ontario+%
 
 Many of the returned searches are for government ArcGIS REST endpoints that power much of the public websites! All of these can be read by a program or person. How? Each is available both as a JSON and HTML version:
 
-- Example HTML Version: https://sampleserver6.arcgisonline.com/arcgis/rest/services
-- Example JSON Version: https://sampleserver6.arcgisonline.com/arcgis/rest/services?f=pjson
+- Example HTML Version (default): https://sampleserver6.arcgisonline.com/arcgis/rest/services?f=html
+- Example 'pretty' JSON Version: https://sampleserver6.arcgisonline.com/arcgis/rest/services?f=pjson
 
-What is different between the two above URLS? 
+What is different between the results from the two above URLS? 
 
 <details><summary>Click for Answer</summary>
 
-> - There is no URL parameter on the first one, but the second one specifically asks for the returned results in JSON. The JSON version is meant to be serializable by a program, usually JavaScript. That is just a fancy way of saying a programmer can code something to read and navigate the information shown on the REST endpoint easily. 
+> - There is no URL parameter on the first one, but the second one specifically asks for the returned results in "Pretty" JSON. The JSON version is meant to be serializable by a program, usually JavaScript. That is just a fancy way of saying a programmer can code something to read and navigate the information shown on the REST endpoint easily. 
 > - Why the P in front of JSON? "Pretty" JSON. Pretty? It is formatted nicely to be read by a human and program.
 
 </details>
@@ -48,7 +48,7 @@ Now the JSON bunches up (all spaces are removed) and is arguably less easily rea
 
 3. Open the HTML version by changing the f=json in the URL to be f=html
 
-The f=html option is the default, so if the "f" URL parameter left off it will show the html version. There are other output formats, but for the purposes here we will be focusing on the HTML version. The full documentation for this URL parameter is at https://developers.arcgis.com/rest/services-reference/enterprise/output-formats.htm.
+The f=html option is the default, so if the "f" URL parameter is missing it will show the html version. There are other output formats, but for the purposes here we will be focusing on the HTML version. The full documentation for this URL parameter is at https://developers.arcgis.com/rest/services-reference/enterprise/output-formats.htm.
 
 4. Return your focus to and open just the HTML version at https://sampleserver6.arcgisonline.com/arcgis/rest/services. The remaining parts of the exercise will always use the HTML version, but remember you can always change the format to `f=json` or `f=pjson` in the URL parameters to return JSON or PJSON. 
 
