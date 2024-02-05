@@ -332,4 +332,4 @@ Not a good idea for some purposes, but if you want the public to be able to subm
 
 # Conclusion
 
-Now you know the basics of how to navigate the REST API for ArcGIS Server. Using the documentation provided at https://developers.arcgis.com/rest/services-reference/enterprise/what-s-new.htm you can explore and use the interface to directly query services without an application!
+Now you know the basics of how to navigate the REST API used in ArcGIS Online and ArcGIS Server (which is part of ArcGIS Enterprise). Using the documentation provided at https://developers.arcgis.com/rest/services-reference/enterprise/what-s-new.htm you can explore and use the interface to directly query services without an application!
