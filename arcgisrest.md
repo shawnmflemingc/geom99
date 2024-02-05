@@ -74,21 +74,29 @@ Lets break this down into its method and parameters, section by section (remembe
 
 The Export is a method (method, as in it does something) that generates an image on the server using all layers in the map service, then returns the image file as link in the format requested. 
 
-## Bounding Box `bbox=-89.25,35.48,-72.61,46.01`  (https://developers.arcgis.com/rest/services-reference/enterprise/export-map.htm#GUID-615E87E9-D0A9-4211-A872-06FFF95A6244)
+## Bounding Box `bbox=-89.25,35.48,-72.61,46.01`  
+
+Documentation: https://developers.arcgis.com/rest/services-reference/enterprise/export-map.htm#GUID-615E87E9-D0A9-4211-A872-06FFF95A6244
 
 This is the bounding box for the request. The image will be generated using the geographical box indicated. The syntax is `<xmin>, <ymin>, <xmax>, <ymax>` using the spatial reference of the map (or converted, if a different spatial reference is used by including the URL parameter `bbSR`). 
 
-## Image Size `size=450,200` (https://developers.arcgis.com/rest/services-reference/enterprise/export-map.htm#GUID-E79E5960-E5D7-42B5-BB1A-CE1D345396C9)
+## Image Size `size=450,200` 
+
+Documentation: https://developers.arcgis.com/rest/services-reference/enterprise/export-map.htm#GUID-E79E5960-E5D7-42B5-BB1A-CE1D345396C9
 
 Given the bounding box, this image size request will be the size of the actual image returned in pixels `<width>,<height>`.
 
-## Image Format `format=png32` (https://developers.arcgis.com/rest/services-reference/enterprise/export-map.htm#GUID-6B8563EA-E9BC-4A1F-8FB7-BC8FD3B83FA2)
+## Image Format `format=png32` 
+
+Documentation: https://developers.arcgis.com/rest/services-reference/enterprise/export-map.htm#GUID-6B8563EA-E9BC-4A1F-8FB7-BC8FD3B83FA2
 
 The image format to be returned can be specified using this parameter. In this case, it is a 32-bit PNG that is created and returned. There are a lot of options for this, including any one of: 
 
 `png | png8 | png24 | jpg | pdf | bmp | gif | svg | svgz | emf | ps | png32`
 
-## Return the image `format=image` (https://developers.arcgis.com/rest/services-reference/enterprise/export-map.htm#GUID-6B8563EA-E9BC-4A1F-8FB7-BC8FD3B83FA2)
+## Return the image `format=image` 
+
+Documentation: https://developers.arcgis.com/rest/services-reference/enterprise/export-map.htm#GUID-6B8563EA-E9BC-4A1F-8FB7-BC8FD3B83FA2
 
 This option just returns the image directly from the request. It can be used in an `<img src="image">` tag directly, where the image is the entire URL that generates that static image. There is no user interface around this image being displayed, so you cannot interact with the map. Note you can also shortform this to just "f=". 
 
